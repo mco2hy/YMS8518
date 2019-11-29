@@ -1,58 +1,40 @@
 ﻿<!doctype html>
 <html>
 <head>
-    <style>
-        .button {
-            border-style: solid;
-            width: 50px;
-            height: 50px;
-            float: left;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            user-select: none;
-            background: bisque;
-        }
-
-        .result {
-            width: 220px;
-            height: 50px;
-            border-style: groove;
-            display: flex;
-            align-items: center;
-            justify-content: flex-end
-        }
-    </style>
+    <link href="~/main.css" rel="stylesheet" />
+    <script src="~/main.js"></script>
 </head>
 <body>
-    <div style="width: 226px; height: 282px; border-style: groove;">
-        <div class="result">result</div>
-        <div style="width: 168px; height: 232px; float: left;">
+    <div class="screen">
+        <div class="result" id="result1"></div>
+        <div class="calculator">
             <div>
-                <div class="button" onclick="alert('7');">7</div>
-                <div class="button" onclick="alert('8');">8</div>
-                <div class="button" onclick="alert('9');">9</div>
+                <div class="button" onclick="Values('7');">7</div>
+                <div class="button" onclick="Values('8');">8</div>
+                <div class="button" onclick="Values('9');">9</div>
             </div>
             <div style="clear: both;"></div>
             <div>
-                <div class="button" onclick="alert('4');">4</div>
-                <div class="button" onclick="alert('5');">5</div>
-                <div class="button" onclick="alert('6');">6</div>
+                <div class="button" onclick="Values('4');">4</div>
+                <div class="button" onclick="Values('5');">5</div>
+                <div class="button" onclick="Values('6');">6</div>
             </div>
             <div style="clear: both;"></div>
             <div>
-                <div class="button" onclick="alert('1');">1</div>
-                <div class="button" onclick="alert('2');">2</div>
-                <div class="button" onclick="alert('3');">3</div>
+                <div class="button" onclick="Values('1');">1</div>
+                <div class="button" onclick="Values('2');">2</div>
+                <div class="button" onclick="Values('3');">3</div>
             </div>
             <div style="clear: both;"></div>
-            <div class="button" style="margin-left: 56px;" onclick="alert('0');">0</div>
+            <div class="button" onclick="Clear();">C</div>
+            <div class="button" onclick="Values('0');">0</div>
+            <div class="button" onclick="Equals();">=</div>
         </div>
-        <div style="width: 56px; height: 232px; float: left;">
-            <div class="button">+</div>
-            <div class="button">-</div>
-            <div class="button">/</div>
-            <div class="button">x</div>
+        <div class="operators">
+            <div class="button" onclick="Operators('+');">+</div>
+            <div class="button" onclick="Operators('-');">-</div>
+            <div class="button" onclick="Operators('*');">*</div>
+            <div class="button" onclick="Operators('/');">/</div>
         </div>
     </div>
 </body>

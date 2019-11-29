@@ -1,0 +1,40 @@
+﻿.button {
+     
+     border-style: ridge;
+     width: 50px;
+     height: 50px;
+     float: left;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     user-select: none;
+     background: gray;
+     color: wheat;
+ }
+.result {
+    background: wheat;
+    color: gray;
+    width: 218px;
+    height: 50px;
+    border-style: ridge;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+
+}
+.calculator {
+    width: 168px;
+    height: 232px;
+    float: left;
+}
+.screen {
+    height: 280px;
+    border-style: ridge;
+    width:224px;
+    margin:auto;
+}
+.operators {
+    width: 56px;
+    height: 232px;
+    float: left;
+}
