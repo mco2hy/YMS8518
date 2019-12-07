@@ -68,6 +68,52 @@
                     console.log(result);
                 }
                 
+            },
+            Manage: {
+                Login: function() {
+                    var username = $("#Username").val();
+                    var password = $("#Password").val();
+
+                    if (username.length < 5 || username.length > 32) {
+                        alert("Kullanıcı adı hatalı.");
+                        return;
+                    }
+                    else if (password.length < 8 || password.length > 32) {
+                        alert("Şifre hatalı");
+                        return;
+                    }
+
+                    $("#GuestBook-Manage-Form").hide();
+                    $("#GuestBook-Manage-Sending").show();
+
+                    var data = {
+                        Username: username,
+                        Password: password
+                    };
+
+                    var json = JSON.stringify(data);
+
+                    $.ajax({
+                        type: "POST",
+                        url: "/GuestBook/LoginAction",
+                        data: json,
+                        success: GuestBook.Page.GuestBook.Manage.Login_Callback,
+                        error: GuestBook.Page.GuestBook.Manage.Login_Callback_Error,
+                        dataType: "json",
+                        contentType: "application/json;charset=utf-8"
+                    });
+
+
+                },
+                Login_Callback: function (result) {
+                    $("#GuestBook-Manage-Sending").hide();
+                    $("#GuestBook-Manage-Sent").show();
+                    window.location.href = "/GuestBook/AdminDashboard";
+                },
+
+                Login_Callback_Error: function (result) {
+                    alert("Kullanıcı adı veya şifre hatalı.");
+                }
             }
         }
     },
