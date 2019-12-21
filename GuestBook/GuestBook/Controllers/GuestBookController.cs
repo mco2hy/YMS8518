@@ -11,14 +11,17 @@ namespace GuestBook.Controllers
 {
     public class GuestBookController : Controller
     {
-        private readonly DataContext _dataContext;
-        public GuestBookController(DataContext dataContext)
+        private readonly Data.Interfaces.IUserRepository _userRepository;
+        private readonly Data.Interfaces.IGuestNoteRepository _guestNoteRepository;
+
+        public GuestBookController(Data.Interfaces.IGuestNoteRepository guestNoteRepository, Data.Interfaces.IUserRepository userRepository)
         {
-            _dataContext = dataContext;
+            _userRepository = userRepository;
+            _guestNoteRepository = guestNoteRepository;
         }
         public IActionResult Index()
         {
-            List<GuestNote> guestNotes = _dataContext.GuestNotes.ToList();
+            List<GuestNote> guestNotes = _guestNoteRepository.List();
             return View(guestNotes);
         }
 
@@ -39,7 +42,7 @@ namespace GuestBook.Controllers
             }
 
 
-            User user = _dataContext.Users.SingleOrDefault
+            User user = _userRepository.List().SingleOrDefault
                 (a => a.Username == guestBookLoginDto.Username && a.Password == guestBookLoginDto.Password);
 
             if (user != null)
@@ -81,14 +84,14 @@ namespace GuestBook.Controllers
             }
 
             GuestNote guestNote = new GuestNote();
-            guestNote.Name = guestBookSendActionDto.Name;
-            guestNote.Surname = guestBookSendActionDto.Surname;
-            guestNote.Email = guestBookSendActionDto.Email;
-            guestNote.Message = guestBookSendActionDto.Message;
-            guestNote.CreateDate = DateTime.Now;
-
-            _dataContext.GuestNotes.Add(guestNote);
-            _dataContext.SaveChanges(); //Databases a kaydet.
+            {
+                guestNote.Name = guestBookSendActionDto.Name;
+                guestNote.Surname = guestBookSendActionDto.Surname;
+                guestNote.Email = guestBookSendActionDto.Email;
+                guestNote.Message = guestBookSendActionDto.Message;
+                guestNote.CreateDate = DateTime.Now;
+            };
+            _guestNoteRepository.Insert(guestNote);
 
             return new JsonResult("ok");
         }

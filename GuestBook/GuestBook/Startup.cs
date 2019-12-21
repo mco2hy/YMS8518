@@ -34,6 +34,9 @@ namespace GuestBook
             services.AddDbContext<DataContext>
                 (optionsAction: a => a.UseSqlServer("Server=localhost;Database=YMS8518_GuestBook;User Id=sa;Password=123;"));
             services.AddSession();
+            services.AddScoped<Data.Interfaces.IGuestNoteRepository, Service.GuestNoteRepository>();
+            services.AddScoped<Data.Interfaces.IUserRepository, Service.UserRepository>();
+            
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }
 
