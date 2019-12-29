@@ -7,5 +7,6 @@ namespace GenericRepository.Interfaces
 {
     public interface IBookRepository : IRepository<Models.Book>
     {
+        Models.Book GetTheBestSeller();
     }
 }

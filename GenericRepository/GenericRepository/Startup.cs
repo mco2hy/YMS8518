@@ -28,9 +28,7 @@ namespace GenericRepository
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
             services.AddDbContext<DataContext>(a =>
             a.UseSqlServer("Server=localhost;User Id=sa;Password=123;Database=YMS8518_Generic;"));
-            services.AddScoped<Interfaces.IUserRepository, Services.UserRepository>();
-            services.AddScoped<Interfaces.IBookRepository, Services.BookRepository>();
-            services.AddScoped<Interfaces.IPetRepository, Services.PetRepository>();
+            services.AddScoped<Interfaces.IUnitOfWork, Services.UnitOfWork>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

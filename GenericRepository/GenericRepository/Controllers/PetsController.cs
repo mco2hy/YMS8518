@@ -11,17 +11,24 @@ namespace GenericRepository.Controllers
     [ApiController]
     public class PetsController : ControllerBase
     {
-        private readonly Interfaces.IPetRepository _petRepository;
+        private readonly Interfaces.IUnitOfWork _unitOfWork;
 
-        public PetsController(Interfaces.IPetRepository petRepository)
+        public PetsController(Interfaces.IUnitOfWork unitOfWork)
         {
-            _petRepository = petRepository;
+            _unitOfWork = unitOfWork;
         }
         [HttpGet]
         public IActionResult GetAll()
         {
-            var books = _petRepository.getAll();
+            var books = _unitOfWork.PetRepository.getAll();
             return new JsonResult(books);
+        }
+        [HttpPost]
+        public IActionResult Insert([FromBody] Models.Pet pet)
+        {
+            _unitOfWork.PetRepository.Insert(pet);
+            _unitOfWork.Complete();
+            return new JsonResult(pet);
         }
     }
 }
