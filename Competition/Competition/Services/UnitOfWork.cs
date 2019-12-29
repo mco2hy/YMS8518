@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using GenericRepository.Interfaces;
+using Competition.Interfaces;
 
-namespace GenericRepository.Services
+namespace Competition.Services
 {
     public class UnitOfWork : Interfaces.IUnitOfWork
     {
@@ -12,12 +12,10 @@ namespace GenericRepository.Services
         public UnitOfWork(DataContext dataContext)
         {
             _dataContext = dataContext;
-            UserRepository = new Services.UserRepository(_dataContext);
-            BookRepository = new Services.BookRepository(_dataContext);
+            StudentRepository = new Services.StudentRepository(_dataContext);
+
         }
-        public IUserRepository UserRepository { get; set; }
-        public IBookRepository BookRepository { get; set; }
-        public IPetRepository PetRepository { get; set; }
+        public IStudentRepository StudentRepository { get; set; }
 
         public int Complete()
         {
