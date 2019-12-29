@@ -23,7 +23,7 @@ namespace GenericRepository.Controllers
             var users = _unitOfWork.UserRepository.getAll();
             return new JsonResult(users);
         }
-
+    
         [HttpPost]
         public IActionResult Insert([FromBody] Models.User user)
         {
