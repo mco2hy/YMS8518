@@ -79,13 +79,10 @@ namespace MultiThreadingApp
                     threading.CancelThreads = false;
                     break;
                 }
-
             }
-
             new Thread(threading.Thread1).Start();
             new Thread(threading.Thread2).Start(1000);
             Console.ReadLine();
-
         }
     }
 }
