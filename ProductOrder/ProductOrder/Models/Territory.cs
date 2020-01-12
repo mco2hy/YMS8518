@@ -5,7 +5,7 @@ namespace ProductOrder.Models
     public class Territory
     {
         [MaxLength(20)]
-        public int Id { get; set; }
+        public string Id { get; set; }
 
         [MaxLength(50)]
         public int TerritoryDescriptions { get; set; }

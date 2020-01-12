@@ -1,13 +1,19 @@
-﻿namespace ProductOrder.Models
+﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+
+namespace ProductOrder.Models
 {
     public class EmployeeTerritory
     {
-        public int Id { get; set; }
+        [Key]
+        public int EmployeeId { get; set; }
 
-        public int TerritorryID { get; set; }
-        public Territory Territory { get; set; }
-
-        public int EmployeeID { get; set; }
+        [ForeignKey("EmployeeId")]
         public Employee Employee { get; set; }
+        [Key, MaxLength (20)]
+        public int TerritoryId { get; set; }
+
+        [ForeignKey("TerritoryId")]
+        public Territory Territory { get; set; }
     }
 }

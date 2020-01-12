@@ -7,6 +7,10 @@ namespace ProductOrder.Models
     {
         [Key, MaxLength(5)]
         public int CustomerId { get; set; }
+
+        [ForeignKey("CustomerId")]
+        public Customer Customer { get; set; }
+
         [Key, MaxLength(10)]
         public string CustomerTypeId { get; set; }
 

@@ -13,6 +13,8 @@ namespace ProductOrder
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Models.CustomerCustomerDemo>(a => a.HasKey(x => new { x.CustomerId, x.CustomerTypeId}));
+            modelBuilder.Entity<Models.EmployeeTerritory>(a => a.HasKey(x => new { x.EmployeeId, x.TerritoryId}));
+            modelBuilder.Entity<Models.OrderDetail>(a => a.HasKey(x => new { x.OrderId, x.ProductId}));
         }
 
         public DbSet<Product> Products { get; set; }
