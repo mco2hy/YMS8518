@@ -11,7 +11,7 @@ namespace ProductOrder.Models
         [ForeignKey("EmployeeId")]
         public Employee Employee { get; set; }
         [Key, MaxLength (20)]
-        public int TerritoryId { get; set; }
+        public string TerritoryId { get; set; }
 
         [ForeignKey("TerritoryId")]
         public Territory Territory { get; set; }

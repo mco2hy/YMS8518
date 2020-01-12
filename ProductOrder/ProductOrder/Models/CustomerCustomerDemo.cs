@@ -5,8 +5,8 @@ namespace ProductOrder.Models
 {
     public class CustomerCustomerDemo
     {
-        [Key, MaxLength(5)]
-        public int CustomerId { get; set; }
+        [Key, MaxLength(5)]       
+        public string CustomerId { get; set; }
 
         [ForeignKey("CustomerId")]
         public Customer Customer { get; set; }

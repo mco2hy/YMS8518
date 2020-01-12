@@ -5,7 +5,7 @@ namespace ProductOrder.Models
     public class Customer
     {
         [MaxLength(5)]
-        public int Id { get; set; }
+        public string Id { get; set; }
 
         [MaxLength(40)]
         public string CompanyName { get; set; }

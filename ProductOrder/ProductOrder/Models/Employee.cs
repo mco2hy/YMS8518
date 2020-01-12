@@ -34,7 +34,7 @@ namespace ProductOrder.Models
         public byte[] Photo { get; set; }
         public string Notes { get; set; }
 
-        public int ReportsTo { get; set; }
+        public int? ReportsTo { get; set; }
         [ForeignKey("ReportsTo")]
         public Employee EmployeeReportsTo { get; set; }
 

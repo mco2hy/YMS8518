@@ -30,7 +30,7 @@ namespace ProductOrder.Models
         public int ShipperID { get; set; }
         public Shipper Shipper { get; set; }
 
-        public int CustomerID { get; set; }
+        public string CustomerID { get; set; }
         public Customer Customer { get; set; }
 
         public int EmployeeID { get; set; }

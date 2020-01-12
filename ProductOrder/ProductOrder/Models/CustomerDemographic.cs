@@ -5,7 +5,7 @@ namespace ProductOrder.Models
 {
     public class CustomerDemographic
     {
-        [Key]
+        [Key, MaxLength(10)]
         public string CustomerTypeId { get; set; }
         public string CustomerDesc { get; set; }
         
