@@ -1,5 +1,6 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace ProductOrder.Models
 {
@@ -32,7 +33,11 @@ namespace ProductOrder.Models
         public string Extension { get; set; }
         public byte[] Photo { get; set; }
         public string Notes { get; set; }
+
         public int ReportsTo { get; set; }
+        [ForeignKey("ReportsTo")]
+        public Employee EmployeeReportsTo { get; set; }
+
         [MaxLength(255)]
         public string PhotoPath { get; set; }
 
