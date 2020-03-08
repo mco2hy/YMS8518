@@ -21,7 +21,7 @@ namespace ProductOrder.Controllers
         [HttpGet]
         public IActionResult GetAll()
         {
-            var orders = _unitOfWork.CategoryRepository.GetAll();
+            var orders = _unitOfWork.OrderRepository.GetAll();
             return new JsonResult(orders);
         }
         [HttpPost]
