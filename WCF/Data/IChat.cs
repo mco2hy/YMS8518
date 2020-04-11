@@ -43,10 +43,12 @@ namespace Data
                 string createText = nickname + ": " + message + "--> " + DateTime.Now + Environment.NewLine;
                 File.WriteAllText(path, createText);
             }
-
-            string appendText = nickname + ": " + message + "--> " + DateTime.Now + Environment.NewLine;
-            File.AppendAllText(path, appendText);
-
+            //değiştirdik
+            else
+            {
+                string appendText = nickname + ": " + message + "--> " + DateTime.Now + Environment.NewLine;
+                File.AppendAllText(path, appendText);
+            }
             //File.writealltext
             //file.appendtext
         }
